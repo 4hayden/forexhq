@@ -1,0 +1,1899 @@
+swagger: '2.0'
+basePath: ''
+info:
+  title: ''
+  version: 0.0.0
+paths:
+  /api/account/asset/fatcas:
+    get:
+      tags:
+        - fatca
+      operationId: getFatcaCollection
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Retrieves the collection of fatca resources.
+      responses:
+        '200':
+          description: fatca collection response
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/fatca-fatca:read'
+      parameters:
+        - name: page
+          in: query
+          required: false
+          description: The collection page number
+          type: integer
+    post:
+      tags:
+        - fatca
+      operationId: postFatcaCollection
+      consumes:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Creates a fatca resource.
+      responses:
+        '201':
+          description: fatca resource created
+          schema:
+            $ref: '#/definitions/fatca-fatca:read'
+        '400':
+          description: Invalid input
+        '404':
+          description: Resource not found
+      parameters:
+        - name: fatca
+          in: body
+          description: The new fatca resource
+          schema:
+            $ref: '#/definitions/fatca'
+  '/api/account/asset/fatcas/{id}':
+    get:
+      tags:
+        - fatca
+      operationId: getFatcaItem
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Retrieves a fatca resource.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: fatca resource response
+          schema:
+            $ref: '#/definitions/fatca-fatca:read'
+        '404':
+          description: Resource not found
+    put:
+      tags:
+        - fatca
+      operationId: putFatcaItem
+      consumes:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Replaces the fatca resource.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+        - name: fatca
+          in: body
+          description: The updated fatca resource
+          schema:
+            $ref: '#/definitions/fatca'
+      responses:
+        '200':
+          description: fatca resource updated
+          schema:
+            $ref: '#/definitions/fatca-fatca:read'
+        '400':
+          description: Invalid input
+        '404':
+          description: Resource not found
+  /api/account/asset/identifications:
+    get:
+      tags:
+        - identification
+      operationId: getIdentificationCollection
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Retrieves the collection of identification resources.
+      responses:
+        '200':
+          description: identification collection response
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/identification-id:read'
+      parameters:
+        - name: page
+          in: query
+          required: false
+          description: The collection page number
+          type: integer
+    post:
+      tags:
+        - identification
+      operationId: postIdentificationCollection
+      consumes:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Creates a identification resource.
+      responses:
+        '201':
+          description: identification resource created
+          schema:
+            $ref: '#/definitions/identification-id:read'
+        '400':
+          description: Invalid input
+        '404':
+          description: Resource not found
+      parameters:
+        - name: identification
+          in: body
+          description: The new identification resource
+          schema:
+            $ref: '#/definitions/identification'
+  '/api/account/asset/identifications/{id}':
+    get:
+      tags:
+        - identification
+      operationId: getIdentificationItem
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Retrieves a identification resource.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: identification resource response
+          schema:
+            $ref: '#/definitions/identification-id:read'
+        '404':
+          description: Resource not found
+    put:
+      tags:
+        - identification
+      operationId: putIdentificationItem
+      consumes:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Replaces the identification resource.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+        - name: identification
+          in: body
+          description: The updated identification resource
+          schema:
+            $ref: '#/definitions/identification'
+      responses:
+        '200':
+          description: identification resource updated
+          schema:
+            $ref: '#/definitions/identification-id:read'
+        '400':
+          description: Invalid input
+        '404':
+          description: Resource not found
+  /api/accounts:
+    get:
+      tags:
+        - Account
+      operationId: getAccountCollection
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Retrieves the collection of Account resources.
+      responses:
+        '200':
+          description: Account collection response
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Account-account:read'
+      parameters:
+        - name: isCommercial
+          in: query
+          required: false
+          type: boolean
+        - name: page
+          in: query
+          required: false
+          description: The collection page number
+          type: integer
+    post:
+      tags:
+        - Account
+      operationId: postAccountCollection
+      consumes:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Creates a Account resource.
+      responses:
+        '201':
+          description: Account resource created
+          schema:
+            $ref: '#/definitions/Account-account:read'
+        '400':
+          description: Invalid input
+        '404':
+          description: Resource not found
+      parameters:
+        - name: account
+          in: body
+          description: The new Account resource
+          schema:
+            $ref: '#/definitions/Account'
+  /api/accounts/asset/applications:
+    get:
+      tags:
+        - application
+      operationId: getApplicationCollection
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Retrieves the collection of application resources.
+      responses:
+        '200':
+          description: application collection response
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/application-application_form:read'
+      parameters:
+        - name: page
+          in: query
+          required: false
+          description: The collection page number
+          type: integer
+    post:
+      tags:
+        - application
+      operationId: postApplicationCollection
+      consumes:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Creates a application resource.
+      responses:
+        '201':
+          description: application resource created
+          schema:
+            $ref: '#/definitions/application-application_form:read'
+        '400':
+          description: Invalid input
+        '404':
+          description: Resource not found
+      parameters:
+        - name: application
+          in: body
+          description: The new application resource
+          schema:
+            $ref: '#/definitions/application'
+  '/api/accounts/asset/applications/{id}':
+    get:
+      tags:
+        - application
+      operationId: getApplicationItem
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Retrieves a application resource.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: application resource response
+          schema:
+            $ref: '#/definitions/application-application_form:read'
+        '404':
+          description: Resource not found
+    put:
+      tags:
+        - application
+      operationId: putApplicationItem
+      consumes:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Replaces the application resource.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+        - name: application
+          in: body
+          description: The updated application resource
+          schema:
+            $ref: '#/definitions/application'
+      responses:
+        '200':
+          description: application resource updated
+          schema:
+            $ref: '#/definitions/application-application_form:read'
+        '400':
+          description: Invalid input
+        '404':
+          description: Resource not found
+  /api/accounts/asset/poas:
+    get:
+      tags:
+        - poa
+      operationId: getPoaCollection
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Retrieves the collection of poa resources.
+      responses:
+        '200':
+          description: poa collection response
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/poa-poa:read'
+      parameters:
+        - name: page
+          in: query
+          required: false
+          description: The collection page number
+          type: integer
+    post:
+      tags:
+        - poa
+      operationId: postPoaCollection
+      consumes:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Creates a poa resource.
+      responses:
+        '201':
+          description: poa resource created
+          schema:
+            $ref: '#/definitions/poa-poa:read'
+        '400':
+          description: Invalid input
+        '404':
+          description: Resource not found
+      parameters:
+        - name: poa
+          in: body
+          description: The new poa resource
+          schema:
+            $ref: '#/definitions/poa'
+  '/api/accounts/asset/poas/{id}':
+    get:
+      tags:
+        - poa
+      operationId: getPoaItem
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Retrieves a poa resource.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: poa resource response
+          schema:
+            $ref: '#/definitions/poa-poa:read'
+        '404':
+          description: Resource not found
+    put:
+      tags:
+        - poa
+      operationId: putPoaItem
+      consumes:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Replaces the poa resource.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+        - name: poa
+          in: body
+          description: The updated poa resource
+          schema:
+            $ref: '#/definitions/poa'
+      responses:
+        '200':
+          description: poa resource updated
+          schema:
+            $ref: '#/definitions/poa-poa:read'
+        '400':
+          description: Invalid input
+        '404':
+          description: Resource not found
+  '/api/accounts/{id}':
+    get:
+      tags:
+        - Account
+      operationId: getAccountItem
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Retrieves a Account resource.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Account resource response
+          schema:
+            $ref: '#/definitions/Account-account:read'
+        '404':
+          description: Resource not found
+    put:
+      tags:
+        - Account
+      operationId: putAccountItem
+      consumes:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Replaces the Account resource.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+        - name: account
+          in: body
+          description: The updated Account resource
+          schema:
+            $ref: '#/definitions/Account'
+      responses:
+        '200':
+          description: Account resource updated
+          schema:
+            $ref: '#/definitions/Account-account:read'
+        '400':
+          description: Invalid input
+        '404':
+          description: Resource not found
+  '/api/compliances/{id}':
+    get:
+      tags:
+        - Compliance
+      operationId: getComplianceItem
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Retrieves a Compliance resource.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Compliance resource response
+          schema:
+            $ref: '#/definitions/Compliance-compliance:read'
+        '404':
+          description: Resource not found
+  /api/contracts:
+    get:
+      tags:
+        - Contract
+      operationId: getContractCollection
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Retrieves the collection of Contract resources.
+      responses:
+        '200':
+          description: Contract collection response
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Contract-contract:read'
+      parameters:
+        - name: page
+          in: query
+          required: false
+          description: The collection page number
+          type: integer
+    post:
+      tags:
+        - Contract
+      operationId: postContractCollection
+      consumes:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Creates a Contract resource.
+      responses:
+        '201':
+          description: Contract resource created
+          schema:
+            $ref: '#/definitions/Contract-contract:read'
+        '400':
+          description: Invalid input
+        '404':
+          description: Resource not found
+      parameters:
+        - name: contract
+          in: body
+          description: The new Contract resource
+          schema:
+            $ref: '#/definitions/Contract-contract:write'
+  '/api/contracts/{id}':
+    get:
+      tags:
+        - Contract
+      operationId: getContractItem
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Retrieves a Contract resource.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Contract resource response
+          schema:
+            $ref: '#/definitions/Contract-contract:read'
+        '404':
+          description: Resource not found
+    put:
+      tags:
+        - Contract
+      operationId: putContractItem
+      consumes:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Replaces the Contract resource.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+        - name: contract
+          in: body
+          description: The updated Contract resource
+          schema:
+            $ref: '#/definitions/Contract-contract:write'
+      responses:
+        '200':
+          description: Contract resource updated
+          schema:
+            $ref: '#/definitions/Contract-contract:read'
+        '400':
+          description: Invalid input
+        '404':
+          description: Resource not found
+  /api/currency_pairs:
+    get:
+      tags:
+        - CurrencyPair
+      operationId: getCurrencyPairCollection
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Retrieves the collection of CurrencyPair resources.
+      responses:
+        '200':
+          description: CurrencyPair collection response
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/CurrencyPair-pair:read'
+      parameters:
+        - name: 'retailCashBid[between]'
+          in: query
+          required: false
+          type: string
+        - name: 'retailCashBid[gt]'
+          in: query
+          required: false
+          type: string
+        - name: 'retailCashBid[gte]'
+          in: query
+          required: false
+          type: string
+        - name: 'retailCashBid[lt]'
+          in: query
+          required: false
+          type: string
+        - name: 'retailCashBid[lte]'
+          in: query
+          required: false
+          type: string
+        - name: 'retailCashAsk[between]'
+          in: query
+          required: false
+          type: string
+        - name: 'retailCashAsk[gt]'
+          in: query
+          required: false
+          type: string
+        - name: 'retailCashAsk[gte]'
+          in: query
+          required: false
+          type: string
+        - name: 'retailCashAsk[lt]'
+          in: query
+          required: false
+          type: string
+        - name: 'retailCashAsk[lte]'
+          in: query
+          required: false
+          type: string
+        - name: 'retailTTBid[between]'
+          in: query
+          required: false
+          type: string
+        - name: 'retailTTBid[gt]'
+          in: query
+          required: false
+          type: string
+        - name: 'retailTTBid[gte]'
+          in: query
+          required: false
+          type: string
+        - name: 'retailTTBid[lt]'
+          in: query
+          required: false
+          type: string
+        - name: 'retailTTBid[lte]'
+          in: query
+          required: false
+          type: string
+        - name: 'retailTTAsk[between]'
+          in: query
+          required: false
+          type: string
+        - name: 'retailTTAsk[gt]'
+          in: query
+          required: false
+          type: string
+        - name: 'retailTTAsk[gte]'
+          in: query
+          required: false
+          type: string
+        - name: 'retailTTAsk[lt]'
+          in: query
+          required: false
+          type: string
+        - name: 'retailTTAsk[lte]'
+          in: query
+          required: false
+          type: string
+        - name: 'commercialCashBid[between]'
+          in: query
+          required: false
+          type: string
+        - name: 'commercialCashBid[gt]'
+          in: query
+          required: false
+          type: string
+        - name: 'commercialCashBid[gte]'
+          in: query
+          required: false
+          type: string
+        - name: 'commercialCashBid[lt]'
+          in: query
+          required: false
+          type: string
+        - name: 'commercialCashBid[lte]'
+          in: query
+          required: false
+          type: string
+        - name: 'commercialCashAsk[between]'
+          in: query
+          required: false
+          type: string
+        - name: 'commercialCashAsk[gt]'
+          in: query
+          required: false
+          type: string
+        - name: 'commercialCashAsk[gte]'
+          in: query
+          required: false
+          type: string
+        - name: 'commercialCashAsk[lt]'
+          in: query
+          required: false
+          type: string
+        - name: 'commercialCashAsk[lte]'
+          in: query
+          required: false
+          type: string
+        - name: 'commercialTTBid[between]'
+          in: query
+          required: false
+          type: string
+        - name: 'commercialTTBid[gt]'
+          in: query
+          required: false
+          type: string
+        - name: 'commercialTTBid[gte]'
+          in: query
+          required: false
+          type: string
+        - name: 'commercialTTBid[lt]'
+          in: query
+          required: false
+          type: string
+        - name: 'commercialTTBid[lte]'
+          in: query
+          required: false
+          type: string
+        - name: 'commercialTTAsk[between]'
+          in: query
+          required: false
+          type: string
+        - name: 'commercialTTAsk[gt]'
+          in: query
+          required: false
+          type: string
+        - name: 'commercialTTAsk[gte]'
+          in: query
+          required: false
+          type: string
+        - name: 'commercialTTAsk[lt]'
+          in: query
+          required: false
+          type: string
+        - name: 'commercialTTAsk[lte]'
+          in: query
+          required: false
+          type: string
+        - name: page
+          in: query
+          required: false
+          description: The collection page number
+          type: integer
+  '/api/currency_pairs/{id}':
+    get:
+      tags:
+        - CurrencyPair
+      operationId: getCurrencyPairItem
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Retrieves a CurrencyPair resource.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: CurrencyPair resource response
+          schema:
+            $ref: '#/definitions/CurrencyPair-pair:read'
+        '404':
+          description: Resource not found
+  /api/dealers:
+    get:
+      tags:
+        - Dealer
+      operationId: getDealerCollection
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Retrieves the collection of Dealer resources.
+      responses:
+        '200':
+          description: Dealer collection response
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Dealer'
+      parameters:
+        - name: page
+          in: query
+          required: false
+          description: The collection page number
+          type: integer
+    post:
+      tags:
+        - Dealer
+      operationId: postDealerCollection
+      consumes:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Creates a Dealer resource.
+      responses:
+        '201':
+          description: Dealer resource created
+          schema:
+            $ref: '#/definitions/Dealer'
+        '400':
+          description: Invalid input
+        '404':
+          description: Resource not found
+      parameters:
+        - name: dealer
+          in: body
+          description: The new Dealer resource
+          schema:
+            $ref: '#/definitions/Dealer'
+  '/api/dealers/{id}':
+    get:
+      tags:
+        - Dealer
+      operationId: getDealerItem
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Retrieves a Dealer resource.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Dealer resource response
+          schema:
+            $ref: '#/definitions/Dealer'
+        '404':
+          description: Resource not found
+    delete:
+      tags:
+        - Dealer
+      operationId: deleteDealerItem
+      summary: Removes the Dealer resource.
+      responses:
+        '204':
+          description: Dealer resource deleted
+        '404':
+          description: Resource not found
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+    put:
+      tags:
+        - Dealer
+      operationId: putDealerItem
+      consumes:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Replaces the Dealer resource.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+        - name: dealer
+          in: body
+          description: The updated Dealer resource
+          schema:
+            $ref: '#/definitions/Dealer'
+      responses:
+        '200':
+          description: Dealer resource updated
+          schema:
+            $ref: '#/definitions/Dealer'
+        '400':
+          description: Invalid input
+        '404':
+          description: Resource not found
+  /api/deals:
+    get:
+      tags:
+        - Deal
+      operationId: getDealCollection
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Retrieves the collection of Deal resources.
+      responses:
+        '200':
+          description: Deal collection response
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Deal'
+      parameters:
+        - name: page
+          in: query
+          required: false
+          description: The collection page number
+          type: integer
+    post:
+      tags:
+        - Deal
+      operationId: postDealCollection
+      consumes:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Creates a Deal resource.
+      responses:
+        '201':
+          description: Deal resource created
+          schema:
+            $ref: '#/definitions/Deal'
+        '400':
+          description: Invalid input
+        '404':
+          description: Resource not found
+      parameters:
+        - name: deal
+          in: body
+          description: The new Deal resource
+          schema:
+            $ref: '#/definitions/Deal'
+  '/api/deals/{id}':
+    get:
+      tags:
+        - Deal
+      operationId: getDealItem
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Retrieves a Deal resource.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Deal resource response
+          schema:
+            $ref: '#/definitions/Deal'
+        '404':
+          description: Resource not found
+    delete:
+      tags:
+        - Deal
+      operationId: deleteDealItem
+      summary: Removes the Deal resource.
+      responses:
+        '204':
+          description: Deal resource deleted
+        '404':
+          description: Resource not found
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+    put:
+      tags:
+        - Deal
+      operationId: putDealItem
+      consumes:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Replaces the Deal resource.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+        - name: deal
+          in: body
+          description: The updated Deal resource
+          schema:
+            $ref: '#/definitions/Deal'
+      responses:
+        '200':
+          description: Deal resource updated
+          schema:
+            $ref: '#/definitions/Deal'
+        '400':
+          description: Invalid input
+        '404':
+          description: Resource not found
+  /api/margins:
+    get:
+      tags:
+        - Margin
+      operationId: getMarginCollection
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Retrieves the collection of Margin resources.
+      responses:
+        '200':
+          description: Margin collection response
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Margin'
+      parameters:
+        - name: page
+          in: query
+          required: false
+          description: The collection page number
+          type: integer
+    post:
+      tags:
+        - Margin
+      operationId: postMarginCollection
+      consumes:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Creates a Margin resource.
+      responses:
+        '201':
+          description: Margin resource created
+          schema:
+            $ref: '#/definitions/Margin'
+        '400':
+          description: Invalid input
+        '404':
+          description: Resource not found
+      parameters:
+        - name: margin
+          in: body
+          description: The new Margin resource
+          schema:
+            $ref: '#/definitions/Margin'
+  '/api/margins/{id}':
+    get:
+      tags:
+        - Margin
+      operationId: getMarginItem
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Retrieves a Margin resource.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Margin resource response
+          schema:
+            $ref: '#/definitions/Margin'
+        '404':
+          description: Resource not found
+    delete:
+      tags:
+        - Margin
+      operationId: deleteMarginItem
+      summary: Removes the Margin resource.
+      responses:
+        '204':
+          description: Margin resource deleted
+        '404':
+          description: Resource not found
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+    put:
+      tags:
+        - Margin
+      operationId: putMarginItem
+      consumes:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Replaces the Margin resource.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+        - name: margin
+          in: body
+          description: The updated Margin resource
+          schema:
+            $ref: '#/definitions/Margin'
+      responses:
+        '200':
+          description: Margin resource updated
+          schema:
+            $ref: '#/definitions/Margin'
+        '400':
+          description: Invalid input
+        '404':
+          description: Resource not found
+  /api/orders:
+    get:
+      tags:
+        - Order
+      operationId: getOrderCollection
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Retrieves the collection of Order resources.
+      responses:
+        '200':
+          description: Order collection response
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Order'
+      parameters:
+        - name: page
+          in: query
+          required: false
+          description: The collection page number
+          type: integer
+    post:
+      tags:
+        - Order
+      operationId: postOrderCollection
+      consumes:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Creates a Order resource.
+      responses:
+        '201':
+          description: Order resource created
+          schema:
+            $ref: '#/definitions/Order'
+        '400':
+          description: Invalid input
+        '404':
+          description: Resource not found
+      parameters:
+        - name: order
+          in: body
+          description: The new Order resource
+          schema:
+            $ref: '#/definitions/Order'
+  '/api/orders/{id}':
+    get:
+      tags:
+        - Order
+      operationId: getOrderItem
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Retrieves a Order resource.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Order resource response
+          schema:
+            $ref: '#/definitions/Order'
+        '404':
+          description: Resource not found
+    put:
+      tags:
+        - Order
+      operationId: putOrderItem
+      consumes:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Replaces the Order resource.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+        - name: order
+          in: body
+          description: The updated Order resource
+          schema:
+            $ref: '#/definitions/Order'
+      responses:
+        '200':
+          description: Order resource updated
+          schema:
+            $ref: '#/definitions/Order'
+        '400':
+          description: Invalid input
+        '404':
+          description: Resource not found
+  /api/quote_tables:
+    get:
+      tags:
+        - QuoteTable
+      operationId: getQuoteTableCollection
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Retrieves the collection of QuoteTable resources.
+      responses:
+        '200':
+          description: QuoteTable collection response
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/QuoteTable-table:read'
+      parameters:
+        - name: page
+          in: query
+          required: false
+          description: The collection page number
+          type: integer
+  '/api/quote_tables/{id}':
+    get:
+      tags:
+        - QuoteTable
+      operationId: getQuoteTableItem
+      produces:
+        - application/ld+json
+        - application/json
+        - text/html
+        - application/hal+json
+      summary: Retrieves a QuoteTable resource.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: QuoteTable resource response
+          schema:
+            $ref: '#/definitions/QuoteTable-table:read'
+        '404':
+          description: Resource not found
+securityDefinitions:
+  JWTToken:
+    type: apiKey
+    in: header
+    description: Value for the Authorization header
+    name: Authorization
+security:
+  - JWTToken: []
+definitions:
+  Account:
+    type: object
+    description: ''
+    properties:
+      id:
+        readOnly: true
+        type: integer
+      isCommercial:
+        type: boolean
+      isActive:
+        type: boolean
+      tradingLocation:
+        type: string
+      supportTeamCode:
+        type: integer
+      title:
+        type: string
+      firstName:
+        type: string
+      lastName:
+        type: string
+      email:
+        type: string
+      birthDate:
+        type: string
+        format: date-time
+      nationality:
+        type: string
+      address:
+        type: string
+      phone:
+        type: integer
+      occupation:
+        type: string
+      isSubscribed:
+        type: boolean
+      referral:
+        type: string
+      income:
+        type: integer
+      estimatedTradingVolume:
+        type: integer
+      purposeOfTrading:
+        type: string
+      estimatedTradingFrequency:
+        type: integer
+      sourceOfFunds:
+        type: string
+      FATCA:
+        type: string
+      Identification:
+        type: string
+      POA:
+        type: string
+      PaperApplicationForm:
+        type: string
+      deals:
+        type: array
+        items:
+          type: string
+      createAt:
+        type: string
+        format: date-time
+    required:
+      - isCommercial
+      - tradingLocation
+      - supportTeamCode
+      - title
+      - firstName
+      - lastName
+      - email
+      - birthDate
+      - address
+      - phone
+      - occupation
+      - isSubscribed
+      - referral
+      - income
+      - estimatedTradingVolume
+      - purposeOfTrading
+      - estimatedTradingFrequency
+      - sourceOfFunds
+      - FATCA
+      - Identification
+      - POA
+      - deals
+  'Account-account:read':
+    type: object
+    description: ''
+    required:
+      - isCommercial
+      - tradingLocation
+      - supportTeamCode
+      - title
+      - firstName
+      - lastName
+      - email
+      - birthDate
+      - address
+      - phone
+      - occupation
+      - isSubscribed
+      - income
+    properties:
+      isCommercial:
+        type: boolean
+      isActive:
+        type: boolean
+      tradingLocation:
+        type: string
+      supportTeamCode:
+        type: integer
+      title:
+        type: string
+      firstName:
+        type: string
+      lastName:
+        type: string
+      email:
+        type: string
+      birthDate:
+        type: string
+        format: date-time
+      address:
+        type: string
+      phone:
+        type: integer
+      occupation:
+        type: string
+      isSubscribed:
+        type: boolean
+      income:
+        type: integer
+  'Compliance-compliance:read':
+    type: object
+    description: A set of fixed compliance strategies to choose from
+    properties:
+      strategy:
+        type: string
+      hasAML:
+        type: boolean
+      hasCFT:
+        type: boolean
+      hasCDD:
+        type: boolean
+      hasEDD:
+        type: boolean
+      isLarge:
+        type: boolean
+      hasSOF:
+        type: boolean
+      hasContactSheet:
+        type: boolean
+      hasRiskForm:
+        type: boolean
+      hasWorldCheck:
+        type: boolean
+      hasTrulioo:
+        type: boolean
+  'Contract-contract:read':
+    type: object
+    description: ''
+    properties:
+      contractNumber:
+        type: integer
+      createdAt:
+        readOnly: true
+        type: string
+        format: date-time
+      valueDateAt:
+        type: string
+        format: date-time
+      symbol:
+        type: string
+      type:
+        type: string
+      amount:
+        type: number
+      deal:
+        type: string
+    required:
+      - valueDateAt
+      - symbol
+      - type
+      - amount
+  'Contract-contract:write':
+    type: object
+    description: ''
+    required:
+      - uid
+      - valueDateAt
+      - symbol
+      - type
+      - amount
+    properties:
+      uid:
+        type: string
+      contractNumber:
+        type: integer
+      valueDateAt:
+        type: string
+        format: date-time
+      symbol:
+        type: string
+      type:
+        type: string
+      amount:
+        type: number
+      deal:
+        type: string
+  'CurrencyPair-pair:read':
+    type: object
+    description: ''
+    required:
+      - symbol
+      - retailCashBid
+      - retailCashAsk
+      - retailTTBid
+      - retailTTAsk
+      - commercialCashBid
+      - commercialCashAsk
+      - commercialTTBid
+      - commercialTTAsk
+    properties:
+      symbol:
+        type: string
+      retailCashBid:
+        type: number
+      retailCashAsk:
+        type: number
+      retailTTBid:
+        type: number
+      retailTTAsk:
+        type: number
+      commercialCashBid:
+        type: number
+      commercialCashAsk:
+        type: number
+      commercialTTBid:
+        type: number
+      commercialTTAsk:
+        type: number
+  Deal:
+    type: object
+    description: 'TODO: validation'
+    properties:
+      id:
+        readOnly: true
+        type: integer
+      transactionNumber:
+        type: integer
+      account:
+        type: string
+      dealer:
+        type: string
+      createdAt:
+        type: string
+        format: date-time
+      dealTimeZone:
+        type: string
+      receivableSymbol:
+        type: string
+      receivableAmount:
+        type: number
+      receivableMethod:
+        type: string
+      receivableAccount:
+        type: integer
+      feeType:
+        type: string
+      feeAmount:
+        type: integer
+      isProcessed:
+        type: boolean
+      dealNumber:
+        type: integer
+  Dealer:
+    type: object
+    description: ''
+    properties:
+      id:
+        readOnly: true
+        type: integer
+      dealerID:
+        type: string
+      supportGroup:
+        type: string
+      name:
+        type: string
+      deals:
+        type: array
+        items:
+          type: string
+  Margin:
+    type: object
+    description: TODO EA transplant
+    properties:
+      id:
+        readOnly: true
+        type: integer
+      platform:
+        type: string
+      leverage:
+        type: number
+      type:
+        type: string
+      position:
+        type: number
+      stopLossThreshold:
+        type: number
+      isLong:
+        type: boolean
+      isShort:
+        type: boolean
+      lotType:
+        type: string
+      charts:
+        type: string
+      comment:
+        type: string
+  Order:
+    type: object
+    description: 'TODO: EA'
+    properties:
+      id:
+        readOnly: true
+        type: integer
+      uid:
+        type: string
+      type:
+        type: string
+      currencyPair:
+        type: string
+      createdAt:
+        type: string
+        format: date-time
+      updatedAt:
+        type: string
+        format: date-time
+      amount:
+        type: number
+      isBilled:
+        type: boolean
+      expectedRate:
+        type: number
+      closestRate:
+        type: number
+      closestRateRecordedAt:
+        type: string
+        format: date-time
+      orderNumber:
+        type: integer
+  'QuoteTable-table:read':
+    type: object
+    description: ''
+    properties:
+      uid:
+        type: string
+      updatedAt:
+        type: string
+        format: date-time
+  application:
+    type: object
+    description: ''
+    properties:
+      id:
+        readOnly: true
+        type: integer
+      file:
+        type: string
+      createdAt:
+        type: string
+        format: date-time
+  'application-application_form:read':
+    type: object
+    description: ''
+    properties:
+      file:
+        type: string
+  fatca:
+    type: object
+    description: ''
+    properties:
+      id:
+        readOnly: true
+        type: integer
+      file:
+        type: string
+      createdAt:
+        type: string
+        format: date-time
+  'fatca-fatca:read':
+    type: object
+    description: ''
+    properties:
+      file:
+        type: string
+  identification:
+    type: object
+    description: ''
+    properties:
+      id:
+        readOnly: true
+        type: integer
+      type:
+        type: string
+      file:
+        type: string
+      createdAt:
+        type: string
+        format: date-time
+      updatedAt:
+        type: string
+        format: date-time
+  'identification-id:read':
+    type: object
+    description: ''
+    properties:
+      type:
+        type: string
+      file:
+        type: string
+  poa:
+    type: object
+    description: ''
+    properties:
+      id:
+        readOnly: true
+        type: integer
+      type:
+        type: string
+      filename:
+        type: string
+      createdAt:
+        type: string
+        format: date-time
+      updatedAt:
+        type: string
+        format: date-time
+  'poa-poa:read':
+    type: object
+    description: ''
+    properties:
+      type:
+        type: string
+      filename:
+        type: string
+
